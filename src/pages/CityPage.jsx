@@ -203,7 +203,7 @@ const CityPage = () => {
           </div>
           <div className="flex items-center justify-center w-full">
             <div className=" w-[400px]">
-              <ForecastChart data={forecastChartData} />
+              {forecastChartData && <ForecastChart data={forecastChartData} />}
             </div>
           </div>
           <div className="flex flex-col w-full gap-3">Próximos 5 días</div>

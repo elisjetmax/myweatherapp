@@ -48,7 +48,7 @@ export const windDirectionsForDegrees = (degrees) => {
 export const generateDataForChart = (forecast) => {
   const { list } = forecast;
   let dates = list.map((x) => x.dt_txt.substring(0, 10));
-  dates = [...new Set(dates)].slice(0, 5);
+  dates = [...new Set(dates)];
 
   let data = dates.map((d) => {
     let max = Math.max(
@@ -73,6 +73,7 @@ export const generateDataForChart = (forecast) => {
     );
 
     let weatherDay = list.find((x) => x.dt_txt === d + " 12:00:00");
+    if (!weatherDay) return undefined;
     let main = {
       stateId: weatherDay.weather[0].id,
       description: weatherDay.weather[0].description,
@@ -92,6 +93,7 @@ export const generateDataForChart = (forecast) => {
       dayName,
     };
   });
-  console.log("data", data);
+  data = data.filter((row) => row !== undefined);
+  console.log("generateDataForChart", data);
   return data;
 };

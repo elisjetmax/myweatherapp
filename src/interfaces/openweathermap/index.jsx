@@ -1,11 +1,13 @@
 import axios from "axios";
 
+const owApiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+
 export const getGeoLocationByCountryAndCity = async (
   cityName,
   countryAlpha2
 ) => {
   try {
-    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryAlpha2}&limit=1&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryAlpha2}&limit=1&appid=${owApiKey}`;
     const geoResult = await axios.get(url);
     const { data, status } = geoResult;
     if (status === 200) {
@@ -23,7 +25,7 @@ export const getGeoLocationByCountryAndCity = async (
 
 export const getWeatherByCoordinates = async (coordinates) => {
   try {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&appid=${owApiKey}`;
     const geoResult = await axios.get(url);
     const { data, status } = geoResult;
     if (status === 200) {
@@ -41,7 +43,7 @@ export const getWeatherByCoordinates = async (coordinates) => {
 
 export const getForecastByCoordinates = async (coordinates) => {
   try {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&cnt=7&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&cnt=7&appid=${owApiKey}`;
     const forecastResult = await axios.get(url);
     const { data, status } = forecastResult;
     if (status === 200) {
@@ -59,7 +61,7 @@ export const getForecastByCoordinates = async (coordinates) => {
 
 export const getForecastbyFiveDaysByCoordinates = async (coordinates) => {
   try {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&lang=es&appid=${owApiKey}`;
     const forecastResult = await axios.get(url);
     const { data, status } = forecastResult;
     if (status === 200) {
@@ -77,7 +79,7 @@ export const getForecastbyFiveDaysByCoordinates = async (coordinates) => {
 
 export const getGeoLocationByCoordinates = async (coordinates) => {
   try {
-    const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.latitude}&lon=${coordinates.longitude}&limit=1&lang=es&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`;
+    const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${coordinates.latitude}&lon=${coordinates.longitude}&limit=1&lang=es&appid=${owApiKey}`;
     const geoResult = await axios.get(url);
     const { data, status } = geoResult;
     if (status === 200) {
