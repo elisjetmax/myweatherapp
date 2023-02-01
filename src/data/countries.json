@@ -1,0 +1,17 @@
+[
+  { "id": 32, "alpha2": "ar", "alpha3": "arg", "name": "Argentina" },
+  { "id": 68, "alpha2": "bo", "alpha3": "bol", "name": "Bolivia" },
+  { "id": 76, "alpha2": "br", "alpha3": "bra", "name": "Brasil" },
+  { "id": 152, "alpha2": "cl", "alpha3": "chl", "name": "Chile" },
+  { "id": 170, "alpha2": "co", "alpha3": "col", "name": "Colombia" },
+  { "id": 188, "alpha2": "cr", "alpha3": "cri", "name": "Costa Rica" },
+  { "id": 218, "alpha2": "ec", "alpha3": "ecu", "name": "Ecuador" },
+  { "id": 840, "alpha2": "us", "alpha3": "usa", "name": "Estados Unidos" },
+  { "id": 340, "alpha2": "hn", "alpha3": "hnd", "name": "Honduras" },
+  { "id": 484, "alpha2": "mx", "alpha3": "mex", "name": "México" },
+  { "id": 591, "alpha2": "pa", "alpha3": "pan", "name": "Panamá" },
+  { "id": 600, "alpha2": "py", "alpha3": "pry", "name": "Paraguay" },
+  { "id": 604, "alpha2": "pe", "alpha3": "per", "name": "Perú" },
+  { "id": 858, "alpha2": "uy", "alpha3": "ury", "name": "Uruguay" },
+  { "id": 862, "alpha2": "ve", "alpha3": "ven", "name": "Venezuela" }
+]

@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.font-russo-one {
+  font-family: "Russo One", sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05rem;
+}
+
+* {
+  font-family: "Chakra Petch", sans-serif;
+  color: #f3f3f3;
+}
+.recharts-tooltip-label {
+  color: #000 !important;
+  font-weight: bold;
+}
+.recharts-tooltip-item:first-child * {
+  color: blue !important;
+}
+.recharts-tooltip-item:last-child * {
+  color: red !important;
+}
+tspan {
+  color: white !important;
+}
+body {
+  margin: 0 !important;
+  padding: 8px !important;
+  background-color: #1b1d1f;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.menu-nav-bar {
+  @apply flex flex-col w-full gap-2 list-none;
+}
+
+.menu-nav-bar a {
+  @apply flex w-full transition-all duration-100 opacity-100;
+}
+
+.menu-nav-bar a:hover {
+  @apply pl-1 text-slate-400;
+}
+.menu-nav-bar a:hover::before {
+  content: url("https://api.iconify.design/carbon:chevron-right.svg?color=silver&width=20&height=20");
+  max-height: 22px;
+  margin-top: 2px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-header {
+  @apply w-5 h-5 transition-all duration-200;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  @apply opacity-20;
+}
+
+.label-state-weather {
+  margin-top: -32px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.svgImageBackground {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.forecast-chart {
+  width: 100%;
+  height: 200px;
+}
+
+.recharts-surface {
+  color: aqua !important;
+}
+
+select,
+select * {
+  @apply p-3 text-white bg-transparent border border-slate-500 rounded-xl;
+}
+option {
+  @apply text-black;
+}
+
+.text-2xs {
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+}
+
+.temperature-letter {
+  @apply flex items-center justify-center w-10 h-10 border rounded-full cursor-pointer border-slate-600;
+}

@@ -1,0 +1,10 @@
+{
+  "cities": [
+    { "city": "Buenos Aires", "alpha2": "ar", "country": "Argentina" },
+    { "city": "Caracas", "alpha2": "ve", "country": "Venezuela" },
+    { "city": "Bogota", "alpha2": "co", "country": "Colombia" },
+    { "city": "Ciudad de Mexico", "alpha2": "mx", "country": "México" },
+    { "city": "Lima", "alpha2": "pe", "country": "Perú" },
+    { "city": "Santiago de Chile", "alpha2": "cl", "country": "Chile" }
+  ]
+}
