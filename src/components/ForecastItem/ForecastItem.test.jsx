@@ -3,14 +3,21 @@ import ForecastItem from "./ForecastItem";
 
 describe("ForecastItem Render", () => {
   test("ForecastItem Render", async () => {
-    render(
-      <ForecastItem weekDay="Jueves" hour={18} state="sunny" temperature={17} />
-    );
-    const weekDay = await screen.findByText("Jueves");
-    const hour = await screen.findByText("18");
-    const temperature = await screen.findByText("17°");
-    expect(weekDay).toHaveTextContent("Jueves");
-    expect(hour).toHaveTextContent("18");
-    expect(temperature).toHaveTextContent("17°");
+    const forecastDataItem = {
+      dateId: 34534534,
+      date: "2023-03-03 18:00:00",
+      temp: 30,
+      icon: "fog",
+      temp_max: 35,
+      temp_min: 10,
+    };
+    render(<ForecastItem forecastDataItem={forecastDataItem} />);
+    const temp = await screen.findAllByTestId("temp-value");
+    const temp_max = await screen.findAllByTestId("temp-max-value");
+    const temp_min = await screen.findAllByTestId("temp-min-value");
+
+    expect(temp[0]).toHaveTextContent(`${forecastDataItem.temp}°`);
+    expect(temp_max[0]).toHaveTextContent(`${forecastDataItem.temp_max}°`);
+    expect(temp_min[0]).toHaveTextContent(`${forecastDataItem.temp_min}°`);
   });
 });

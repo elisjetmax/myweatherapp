@@ -7,6 +7,7 @@ import { addCityToCache, findWeatherByCity } from "../../utils/dataHandler";
 import { showToast } from "../../utils/toastHandler";
 import { convertToDefaultFromKelvin } from "../../utils/unitsHandler";
 import { LoadingSvg } from "../../utils";
+import CityOptions from "../CityOptions";
 
 const CityContainer = ({ countryAndCity, onSaveAsFavorite }) => {
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ const CityContainer = ({ countryAndCity, onSaveAsFavorite }) => {
       showToast(error);
       return;
     }
-    //debugger;
     const { main, weather } = weatherData;
     const temperature = convertToDefaultFromKelvin(main.temp);
     const stateId = weather[0].id;
@@ -47,74 +47,63 @@ const CityContainer = ({ countryAndCity, onSaveAsFavorite }) => {
   };
 
   useEffect(() => {
-    if (!weatherByCity && countryAndCity) getWeatherData();
-  }, []);
+    if (countryAndCity) getWeatherData();
+  }, [countryAndCity]);
   return (
     <>
       {countryAndCity && (
-        <div className="flex flex-col items-center justify-between w-full gap-2 px-4 py-2 bg-slate-700 rounded-xl">
-          <div className="flex flex-row w-full gap-2">
-            <img
-              src="https://api.iconify.design/carbon:earth-filled.svg?color=silver&height=1.7rem"
-              alt=""
-              className="opacity-70"
-            />
-            <div className="flex-1">
-              <CityInfo
-                city={countryAndCity.city}
-                country={countryAndCity.country}
+        <div className="city-container">
+          <div
+            className="flex flex-col items-center justify-between w-full gap-2 cursor-pointer"
+            onClick={() => {
+              navigate(`/city/${countryAndCity.alpha2}/${countryAndCity.city}`);
+            }}
+          >
+            <div className="flex flex-row w-full gap-2">
+              <img
+                src="https://api.iconify.design/carbon:earth-filled.svg?color=silver&height=1.7rem"
+                alt=""
+                className="opacity-70"
               />
-            </div>
-            {loading && LoadingSvg}
-            {!loading && weatherByCity && (
-              <div
-                className="flex items-center justify-center "
-                title={weatherByCity.stateDescription}
-              >
-                <Weather
-                  temperature={weatherByCity.temperature}
-                  stateId={weatherByCity.stateId}
+              <div className="flex-1">
+                <CityInfo
+                  city={countryAndCity.city}
+                  country={countryAndCity.country}
                 />
               </div>
-            )}
-          </div>
+              {loading && LoadingSvg}
+              {!loading && weatherByCity && (
+                <div
+                  className="flex items-center justify-center "
+                  title={weatherByCity.stateDescription}
+                >
+                  <Weather
+                    temperature={weatherByCity.temperature}
+                    stateId={weatherByCity.stateId}
+                  />
+                </div>
+              )}
+            </div>
 
-          <div className="w-full -mt-5 text-xs leading-tight text-right">
-            &nbsp; {!loading && weatherByCity && weatherByCity.stateDescription}
+            <div className="w-full -mt-5 text-xs leading-tight text-right first-letter:capitalize">
+              &nbsp;
+              {!loading && weatherByCity && weatherByCity.stateDescription}
+            </div>
           </div>
-
-          <ol className="flex justify-between w-full gap-3 py-2 text-sm border-t first-letter:uppercase border-slate-600">
-            <li
-              className="flex flex-row items-center justify-center flex-1 gap-2 cursor-pointer"
-              onClick={saveCityAsFavorite}
-            >
-              <img
-                src="https://api.iconify.design/carbon:favorite.svg?color=white&height=20px"
-                alt=""
-              />
-              Favorito
-            </li>
-            <li
-              className="flex flex-row items-center justify-center flex-1 gap-2"
-              onClick={() => {
-                navigate(
-                  `/city/${countryAndCity.alpha2}/${countryAndCity.city}`
-                );
-              }}
-            >
-              <img
-                src="https://api.iconify.design/carbon:information-square.svg?color=white&height=20px"
-                alt=""
-              />
-              Más Info
-            </li>
-          </ol>
+          <CityOptions onSaveCityAsFavorite={saveCityAsFavorite} />
         </div>
       )}
     </>
   );
 };
 
-CityContainer.propTypes = {};
+CityContainer.propTypes = {
+  countryAndCity: PropTypes.shape({
+    city: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    alpha2: PropTypes.string.isRequired,
+  }).isRequired,
+  onSaveAsFavorite: PropTypes.func.isRequired,
+};
 
 export default CityContainer;

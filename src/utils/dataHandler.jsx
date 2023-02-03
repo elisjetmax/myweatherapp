@@ -5,6 +5,8 @@ import {
   getWeatherByCoordinates,
 } from "../interfaces/openweathermap";
 import { getCookie, setCookie } from "./cookieHandler";
+import { convertToDefaultFromKelvin } from "./unitsHandler";
+import { findStateMainIcon } from "./";
 
 export const setInitData = () => {
   const citiesCookie = getCookie("cities");
@@ -106,4 +108,18 @@ export const findWeatherByCity = async (cityName, countryAlpha2) => {
     console.log("findWeatherDataByCity error :>> ", error);
     return { error };
   }
+};
+
+export const forecastfor24HoursDataList = (forecastList) => {
+  const list = forecastList.map((f) => {
+    return {
+      dateId: f.dt,
+      date: f.dt_txt,
+      temp: convertToDefaultFromKelvin(f.main.temp),
+      icon: findStateMainIcon(f.weather[0]?.id || 800),
+      temp_max: convertToDefaultFromKelvin(f.main.temp_max),
+      temp_min: convertToDefaultFromKelvin(f.main.temp_min),
+    };
+  });
+  return list;
 };

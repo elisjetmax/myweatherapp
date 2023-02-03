@@ -1,23 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { RenderForecastItem } from "../../utils";
-import { StateKeysAllowed } from "../ImageState/ImageState";
+import ForecastItem from "../ForecastItem";
 
 const Forecast = ({ forecastItemList }) => {
   return (
-    <ul className="flex items-start justify-around">
-      {forecastItemList.map((forecast) => RenderForecastItem(forecast))}
-    </ul>
+    <ol
+      className="forecast-24-container-items"
+      data-testid="forecast-item-container"
+    >
+      {forecastItemList.map((forecastDataItem) => (
+        <ForecastItem
+          key={forecastDataItem.dateId}
+          forecastDataItem={forecastDataItem}
+        />
+      ))}
+    </ol>
   );
 };
 
 Forecast.propTypes = {
   forecastItemList: PropTypes.arrayOf(
     PropTypes.shape({
-      weekDay: PropTypes.string.isRequired,
-      hour: PropTypes.number.isRequired,
-      state: PropTypes.oneOf(StateKeysAllowed).isRequired,
-      temperature: PropTypes.number.isRequired,
+      dateId: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      temp: PropTypes.number.isRequired,
+      icon: PropTypes.string.isRequired,
+      temp_max: PropTypes.number.isRequired,
+      temp_min: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

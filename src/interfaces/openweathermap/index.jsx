@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const owApiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
 export const getGeoLocationByCountryAndCity = async (

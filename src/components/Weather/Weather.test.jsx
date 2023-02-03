@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 
 describe("Weather Render Test", () => {
   test("Weather Sunny", async () => {
-    render(<Weather temperature={10} state="fog" />);
+    render(<Weather temperature={10} stateId={800} />);
     const temp = await screen.findByRole("heading");
     expect(temp).toHaveTextContent("10");
   });

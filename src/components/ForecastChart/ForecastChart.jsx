@@ -32,11 +32,13 @@ const ForecastChart = ({ data }) => {
 };
 
 ForecastChart.propTypes = {
-  data: PropTypes.shape({
-    dayHour: PropTypes.string.isRequired,
-    min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired,
-  }).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      dayHour: PropTypes.string.isRequired,
+      min: PropTypes.number.isRequired,
+      max: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ForecastChart;

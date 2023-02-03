@@ -20,6 +20,7 @@ module.exports = {
         },
       },
     },
+    "storybook-addon-react-router-v6",
   ],
   framework: "@storybook/react",
   core: {

@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CityInfo from "../CityInfo";
 import Weather from "../Weather";
-import {
-  findWeatherByCity,
-} from "../../utils/dataHandler";
+import { findWeatherByCity } from "../../utils/dataHandler";
 import { showToast } from "../../utils/toastHandler";
-import {
-  convertToDefaultFromKelvin,
-} from "../../utils/unitsHandler";
+import { convertToDefaultFromKelvin } from "../../utils/unitsHandler";
 import { LoadingSvg } from "../../utils";
 
 const renderCityAndCountry = (eOnClickCity) => (cityAndCountry) => {
@@ -47,7 +43,7 @@ const renderCityAndCountry = (eOnClickCity) => (cityAndCountry) => {
   return (
     <li
       key={city}
-      className="flex items-center justify-between px-4 py-2 bg-slate-800 rounded-xl bg-opacity-7"
+      className="citylist-item"
       onClick={(event) => eOnClickCity({ event, cityAndCountry })}
     >
       <img
@@ -65,7 +61,7 @@ const renderCityAndCountry = (eOnClickCity) => (cityAndCountry) => {
       )}
       {!loading && weatherByCity && (
         <div
-          className="flex items-center justify-center"
+          className="flex items-center justify-center pt-1 pr-3 "
           title={weatherByCity.stateDescription}
         >
           <Weather
@@ -87,7 +83,7 @@ const renderCityAndCountry = (eOnClickCity) => (cityAndCountry) => {
 
 const CityList = ({ cities, onClickCity }) => {
   return (
-    <ul className="flex flex-col w-full gap-3">
+    <ul className="citylist-container">
       {cities &&
         cities.map((cityAndCountry) =>
           renderCityAndCountry(onClickCity)(cityAndCountry)

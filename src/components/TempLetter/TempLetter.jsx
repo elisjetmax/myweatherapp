@@ -20,7 +20,7 @@ const TempLetter = () => {
   };
   return (
     <>
-      <div className="flex-1">Mostrar valores en:</div>
+      <div className="flex-1 md:hidden">Mostrar valores en:</div>
       <div
         className={`temperature-letter ${
           tempLetter === "C" ? "bg-slate-400" : ""
