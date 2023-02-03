@@ -6,10 +6,10 @@ export default {
   component: CityInfo,
 };
 
-export const CityExample = () => (
+export const MuestraArgentina = () => (
   <CityInfo city={"Buenos Aires"} country={"Argentina"}></CityInfo>
 );
 
-export const CityExampleTwo = () => (
+export const MuestraVenezuela = () => (
   <CityInfo city={"Caracas"} country={"Venezuela"}></CityInfo>
 );

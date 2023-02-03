@@ -24,9 +24,9 @@ const forecastDataItem = [
   },
 ];
 
-export const Nublado = () => (
+export const MuestraNublado = () => (
   <ForecastItem forecastDataItem={forecastDataItem[0]} />
 );
-export const Extremo = () => (
+export const MuestraExtremo = () => (
   <ForecastItem forecastDataItem={forecastDataItem[1]} />
 );

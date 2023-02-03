@@ -11,6 +11,10 @@
   font-family: "Chakra Petch", sans-serif;
   color: #f3f3f3;
 }
+
+.main-container {
+  @apply my-2;
+}
 .recharts-tooltip-label {
   color: #000 !important;
   font-weight: bold;
