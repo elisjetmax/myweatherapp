@@ -8,6 +8,6 @@ export default {
   decorators: [withRouter],
 };
 
-export const CityHandlerExample = () => (
+export const Muestra = () => (
   <CityHandler onSaveAsFavorite={action("Agregar a Favoritos")} />
 );

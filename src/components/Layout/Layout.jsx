@@ -12,7 +12,9 @@ const Layout = ({ title, subTitle, showBackButton, children }) => {
           showBackButton={showBackButton}
         />
       )}
-      <main data-testid="main-item-container">{children}</main>
+      <main className="main-container" data-testid="main-item-container">
+        {children}
+      </main>
       <footer data-testid="footer-item-container"></footer>
     </>
   );

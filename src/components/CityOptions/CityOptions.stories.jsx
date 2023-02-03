@@ -8,6 +8,6 @@ export default {
   decorators: [withRouter],
 };
 
-export const CityOptionsStorie = () => (
+export const Muestra = () => (
   <CityOptions onSaveCityAsFavorite={action("Agregar a Favoritos")} />
 );

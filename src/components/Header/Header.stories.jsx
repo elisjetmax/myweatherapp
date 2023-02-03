@@ -7,6 +7,6 @@ export default {
   decorators: [withRouter],
 };
 
-export const Example = () => (
+export const Muestra = () => (
   <Header title={"Hola, soy un título"} subTitle="Yo busco ser un subtitulo" />
 );

@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import FormCities from "./FormCities";
 
 export default {
@@ -5,11 +6,6 @@ export default {
   component: FormCities,
 };
 
-export const FormCitiesExample = () => (
-  <FormCities
-    onSelectCountryAndCity={(country, city) => {
-      console.log("Stories Country :>> ", country);
-      console.log("Stories City :>> ", country);
-    }}
-  />
+export const Muestra = () => (
+  <FormCities onSelectCountryAndCity={action("onSelectCountryAndCity")} />
 );

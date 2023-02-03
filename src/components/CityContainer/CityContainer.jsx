@@ -56,7 +56,9 @@ const CityContainer = ({ countryAndCity, onSaveAsFavorite }) => {
           <div
             className="flex flex-col items-center justify-between w-full gap-2 cursor-pointer"
             onClick={() => {
-              navigate(`/city/${countryAndCity.alpha2}/${countryAndCity.city}`);
+              navigate(
+                `/city/${countryAndCity.alpha2?.toLowerCase()}/${countryAndCity.city?.toLowerCase()}`
+              );
             }}
           >
             <div className="flex flex-row w-full gap-2">
