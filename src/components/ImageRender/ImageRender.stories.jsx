@@ -1,11 +1,11 @@
 import React from "react";
-import ImageState from "./ImageState";
+import ImageRender from "./ImageRender";
 
 export default {
   title: "ImageState",
-  component: ImageState,
+  component: ImageRender,
 };
 
 export const ImageStateNublado = () => (
-  <ImageState state="cloudy" size="4rem" />
+  <ImageRender svgName="cloudy" size="4rem" />
 );

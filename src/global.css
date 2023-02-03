@@ -34,29 +34,13 @@ body {
   font-weight: 600;
 }
 
-.menu-nav-bar {
-  @apply flex flex-col w-full gap-2 list-none;
-}
-
-.menu-nav-bar a {
-  @apply flex w-full transition-all duration-100 opacity-100;
-}
-
-.menu-nav-bar a:hover {
-  @apply pl-1 text-slate-400;
-}
-.menu-nav-bar a:hover::before {
-  content: url("https://api.iconify.design/carbon:chevron-right.svg?color=silver&width=20&height=20");
-  max-height: 22px;
-  margin-top: 2px;
-}
 .cursor-pointer {
   cursor: pointer;
+  user-select: none;
 }
 
 .btn-header {
-  @apply w-5 h-5 transition-all duration-200;
-  cursor: pointer;
+  @apply h-5 transition-all duration-200 cursor-pointer w-7;
 }
 
 .btn-close:hover {
@@ -86,8 +70,7 @@ body {
   color: aqua !important;
 }
 
-select,
-select * {
+select {
   @apply p-3 text-white bg-transparent border border-slate-500 rounded-xl;
 }
 option {
@@ -101,4 +84,86 @@ option {
 
 .temperature-letter {
   @apply flex items-center justify-center w-10 h-10 border rounded-full cursor-pointer border-slate-600;
+}
+
+.city-container {
+  @apply flex flex-col items-center justify-between w-full gap-2 px-4 py-2 transition-all duration-300 bg-slate-700 rounded-xl hover:bg-cyan-900;
+  @apply md:flex-row md:w-3/5;
+}
+
+.main-menu {
+  @apply fixed top-0 left-0 z-50 w-full h-full;
+  @apply md:relative md:w-fit md:flex-row md:-mt-2 md:flex;
+}
+
+.main-menu > .menu-container {
+  @apply flex flex-col w-3/4 h-full gap-2 px-4 py-6 bg-slate-800;
+  @apply md:flex-row md:bg-transparent;
+}
+
+.main-menu > .menu-container > .menu-nav-bar {
+  @apply flex flex-col w-full gap-2 list-none;
+  @apply md:items-center md:flex-row md:my-0 md:bg-slate-300;
+}
+
+.menu-nav-bar a {
+  @apply flex w-full transition-all duration-100 opacity-100;
+}
+
+.menu-nav-bar a:hover {
+  @apply pl-1 text-slate-400;
+}
+.menu-nav-bar a:hover::before {
+  content: url("https://api.iconify.design/carbon:chevron-right.svg?color=silver&width=20&height=20");
+  max-height: 22px;
+  margin-top: 2px;
+}
+
+.citylist-container {
+  @apply flex flex-col w-full gap-3;
+  @apply md:flex-row md:flex-wrap md:justify-center;
+}
+
+.citylist-item {
+  @apply flex items-center justify-between px-4 py-2 transition-all duration-300 cursor-pointer bg-slate-800 rounded-xl bg-opacity-70 hover:bg-cyan-900;
+  @apply md:w-2/5;
+  @apply lg:w-1/4;
+}
+
+.weather-details {
+  @apply flex flex-row items-center justify-center flex-1 w-full gap-3;
+  @apply lg:w-1/3 lg:justify-end;
+}
+.weather-parts {
+  @apply flex flex-row items-center justify-center flex-1 w-full h-full;
+  @apply md:w-5/6;
+  @apply lg:justify-start;
+}
+.weather-parts > .parts {
+  @apply flex items-center justify-around w-full p-4 bg-opacity-70 bg-slate-800 rounded-xl;
+  @apply md:w-3/5;
+  @apply lg:w-1/2;
+}
+
+.citypage-details {
+  @apply flex flex-col items-center justify-around w-full gap-3;
+  @apply lg:flex-row lg:items-center lg:justify-center;
+}
+
+.forecast-24-container {
+  @apply flex flex-col items-center justify-between w-full gap-3;
+  @apply md:w-3/4;
+}
+.forecast-24-container-items {
+  @apply flex w-full gap-3 overflow-x-auto overflow-y-hidden text-xs hide-scrollbar;
+  @apply lg:justify-between lg:overflow-x-visible lg:overflow-y-visible;
+}
+.forecast-24-item {
+  @apply flex flex-col items-center justify-center px-4 py-2 bg-slate-800 rounded-xl bg-opacity-70 min-w-[95px];
+  @apply md:flex-1;
+}
+
+.forecast-chart-container {
+  @apply flex flex-col items-center justify-between w-full gap-3;
+  @apply md:w-3/4;
 }

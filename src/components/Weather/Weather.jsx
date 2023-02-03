@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { ImageRender } from "../ImageState";
 import mainStates from "../../data/owMainStates.json";
-
+import ImageRender from "../ImageRender";
 const Weather = ({ temperature, stateId }) => {
   const [stateMainIcon, setStateMainIcon] = useState(null);
 
@@ -17,8 +16,8 @@ const Weather = ({ temperature, stateId }) => {
   });
 
   return (
-    <div className="flex flex-row items-center justify-end gap-1 px-2 w-fit">
-      <ImageRender svgName={stateMainIcon} size="2.4rem" />
+    <div className="flex flex-row items-center justify-end gap-1  -mt-[5px]">
+      {stateMainIcon && <ImageRender svgName={stateMainIcon} size="2.4rem" />}
       <h2 className="font-bold">{temperature}°</h2>
     </div>
   );
@@ -26,7 +25,7 @@ const Weather = ({ temperature, stateId }) => {
 
 Weather.propTypes = {
   temperature: PropTypes.number.isRequired,
-  state: PropTypes.number.isRequired,
+  stateId: PropTypes.number.isRequired,
 };
 Weather.defaultProps = {
   temperature: 0,

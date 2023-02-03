@@ -6,6 +6,14 @@ export default {
   component: WeatherDetails,
 };
 
-export const WeatherDetailsExample = () => (
-  <WeatherDetails humidity={80} wind={10} />
-);
+const details = {
+  main: {
+    temp: 300,
+    feels_like: 340,
+    temp_min: 200,
+    temp_max: 360,
+  },
+  weather: [{ id: 800 }],
+};
+
+export const Muestra = () => <WeatherDetails details={details} />;

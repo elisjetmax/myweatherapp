@@ -12,14 +12,13 @@ function MainPage() {
   const [cities, setCities] = useState(null);
 
   const onClickCity = ({ event, cityAndCountry }) => {
-    debugger;
     const element = event.target;
     if (element.classList.contains("delete-btn")) {
       removeCityFromCache(cityAndCountry);
       setCities(null);
       return;
     }
-    const { city, country, alpha2 } = cityAndCountry;
+    const { city, alpha2 } = cityAndCountry;
     navigate(`/city/${alpha2.toLowerCase()}/${city.toLowerCase()}`);
   };
 
@@ -30,16 +29,15 @@ function MainPage() {
   }, [cities]);
 
   const refreshCityList = () => {
-    debugger;
     setCities(null);
   };
 
   return (
     <>
       <Layout
-        title="Estado del clima"
+        title="Listado de ciudades"
         subTitle={moment().format("dddd, MMMM Do YYYY")}
-        showBackButton={true}
+        showBackButton={false}
       >
         <div className="flex flex-col w-full gap-6 p-2">
           <CityHandler onSaveAsFavorite={refreshCityList} />

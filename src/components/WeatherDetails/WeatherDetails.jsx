@@ -1,24 +1,45 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { convertToDefaultFromKelvin } from "../../utils/unitsHandler";
+import ImageRender from "../ImageRender";
+import { findStateMainIcon } from "../../utils";
 
-const WeatherDetails = ({ humidity, wind }) => {
+const WeatherDetails = ({ details }) => {
   return (
-    <div className="flex gap-2">
-      <div className="flex flex-col items-center">
-        <span className="font-bold">{humidity} %</span>
-        <span className="text-sm">Humedad</span>
+    <div className="weather-details">
+      <div className="flex flex-col pl-4">
+        <span className="text-[5rem] font-russo-one leading-none">
+          {details.main && convertToDefaultFromKelvin(details.main.temp)}°
+        </span>
+        <span className="-mt-0 text-xs first-letter:uppercase text-slate-400">
+          {details.weather &&
+            details.weather.length > 0 &&
+            details.weather[0].description}
+          <br />
+          Sensación térmica:{" "}
+          {details.main && convertToDefaultFromKelvin(details.main.feels_like)}
+          °
+          <br />
+          Mínima:{" "}
+          {details.main && convertToDefaultFromKelvin(details.main.temp_min)}
+          °
+          <br />
+          Máxima:{" "}
+          {details.main && convertToDefaultFromKelvin(details.main.temp_max)}°
+        </span>
       </div>
-      <div className="flex flex-col items-center">
-        <span className="font-bold">{wind} km/h</span>
-        <span className="text-sm">Viento</span>
-      </div>
+      <ImageRender
+        svgName={findStateMainIcon(
+          details.weather && details.weather.length > 0 && details.weather[0].id
+        )}
+        width="10rem"
+      />
     </div>
   );
 };
 
 WeatherDetails.propTypes = {
-  humidity: PropTypes.number.isRequired,
-  wind: PropTypes.number.isRequired,
+  details: PropTypes.object.isRequired,
 };
 
 export default WeatherDetails;

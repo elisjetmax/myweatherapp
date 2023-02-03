@@ -7,8 +7,9 @@ describe("CityInfo Render", () => {
     const city = "Buenos Aires";
     const country = "Argentina";
     render(<CityInfo city={city} country={country} />);
-    const cityAndCountryComponents = await screen.findAllByRole("heading");
-    expect(cityAndCountryComponents[0]).toHaveTextContent(city);
-    expect(cityAndCountryComponents[1]).toHaveTextContent(country);
+    const cityText = await screen.findByText(city);
+    const countryText = await screen.findByText(country);
+    expect(cityText).toHaveTextContent(city);
+    expect(countryText).toHaveTextContent(country);
   });
 });

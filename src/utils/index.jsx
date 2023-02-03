@@ -23,6 +23,13 @@ export const LoadingSvg = (
   />
 );
 
+export const capitalize = (text) => {
+  if (text && text.trim().length > 0) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+  return text;
+};
+
 export const findStateMainIcon = (stateId) => {
   const main = mainStates.find((x) => x.id === stateId);
   if (main) {
@@ -94,6 +101,5 @@ export const generateDataForChart = (forecast) => {
     };
   });
   data = data.filter((row) => row !== undefined);
-  console.log("generateDataForChart", data);
   return data;
 };

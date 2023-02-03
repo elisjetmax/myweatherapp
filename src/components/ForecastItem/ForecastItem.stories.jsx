@@ -5,7 +5,28 @@ export default {
   title: "ForecastItem",
   component: ForecastItem,
 };
+const forecastDataItem = [
+  {
+    dateId: 34534534,
+    date: "2023-03-03 18:00:00",
+    temp: 30,
+    icon: "fog",
+    temp_max: 35,
+    temp_min: 10,
+  },
+  {
+    dateId: 34534534,
+    date: "2023-03-03 09:00:00",
+    temp: -4,
+    icon: "extreme",
+    temp_max: 5,
+    temp_min: -10,
+  },
+];
 
-export const ForecastLunesNublado = () => (
-  <ForecastItem weekDay="Lunes" hour={10} state="cloudy" temperature={23} />
+export const Nublado = () => (
+  <ForecastItem forecastDataItem={forecastDataItem[0]} />
+);
+export const Extremo = () => (
+  <ForecastItem forecastDataItem={forecastDataItem[1]} />
 );

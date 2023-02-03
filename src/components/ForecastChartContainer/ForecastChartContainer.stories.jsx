@@ -1,9 +1,10 @@
-import ForecastChart from "./ForecastChart";
+import ForecastChartContainer from "./ForecastChartContainer";
 
 export default {
-  title: "ForecastChart",
-  component: ForecastChart,
+  title: "ForecastChartContainer",
+  component: ForecastChartContainer,
 };
+
 const dataChart = [
   {
     dayHour: "Jue 18",
@@ -36,5 +37,6 @@ const dataChart = [
     max: 19,
   },
 ];
-
-export const Muestra = () => <ForecastChart data={dataChart} />;
+export const Muestra = () => (
+  <ForecastChartContainer forecastChartData={dataChart} />
+);

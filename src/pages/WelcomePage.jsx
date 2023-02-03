@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import {
-  addCityToCache,
-  findCountryByAlpha2,
-  findWeatherByCity,
-} from "../utils/dataHandler";
+import { findCountryByAlpha2 } from "../utils/dataHandler";
 import { getGeoLocationByCoordinates } from "../interfaces/openweathermap";
-import CityInfo from "../components/CityInfo";
 import { showToast } from "../utils/toastHandler";
-import { LoadingSvg } from "../utils";
-import { convertToDefaultFromKelvin } from "../utils/unitsHandler";
-import Weather from "../components/Weather";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import CityContainer from "../components/CityContainer/CityContainer";
-import { ImageRender } from "../components/ImageState";
+import ImageRender from "../components/ImageRender";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
   const [localCountryAndCity, setLocalCountryAndCity] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [weatherByCity, setWeatherByCity] = useState(null);
   const [geolocationDenied, setGeolocationDenied] = useState(false);
 
   const loadGeoData = () => {
     try {
-      setLoading(true);
       navigator.geolocation.watchPosition(
         function (position) {},
         function (error) {
@@ -63,7 +52,7 @@ const WelcomePage = () => {
 
   useEffect(() => {
     loadGeoData();
-  }, []);
+  }, [localCountryAndCity]);
 
   const onSaveAsFavorite = () => {
     navigate("/main");
@@ -83,13 +72,13 @@ const WelcomePage = () => {
           </div>
         </div>
         {localCountryAndCity && (
-          <>
+          <div className="flex flex-col items-center justify-center w-full gap-3">
             <div>Tu ubicación actual</div>
             <CityContainer
               countryAndCity={localCountryAndCity}
               onSaveAsFavorite={onSaveAsFavorite}
             />
-          </>
+          </div>
         )}
         {geolocationDenied && !localCountryAndCity && (
           <div className="flex flex-col items-center justify-center w-full">
