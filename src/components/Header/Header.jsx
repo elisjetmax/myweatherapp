@@ -73,7 +73,7 @@ const Header = ({ showBackButton, title, subTitle }) => {
                 </li>
               </ol>
               <div className="py-2 text-xs border-t border-slate-500 text-slate-600 md:hidden">
-                <div>CodeChallenge para DBAccess</div>
+                <div>Mi App del Clima</div>
                 <div>Elis Arcia</div>
                 <div>elis.arcia@gmail.com</div>
               </div>

@@ -66,8 +66,10 @@ const WelcomePage = () => {
           style={{ backgroundImage: 'url("/images/weatherbg.jpg")' }}
         >
           <div className="flex flex-col items-center justify-center w-full py-2 bg-opacity-40 bg-slate-400 ">
-            <span className="text-black font-russo-one ">Code Challenge</span>
-            <span className="text-black font-russo-one ">Para DBAccess</span>
+            <span className="text-black font-russo-one ">Mi App del Clima</span>
+            <span className="text-black font-russo-one ">
+              Con datos de OpenWeather
+            </span>
             <span className="text-base text-black">por Elis Arcia</span>
           </div>
         </div>
